@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Holistic Medical Supply Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"></path>
+                    <path d="M12 12v9"></path>
+                    <path d="m8 17 4 4 4-4"></path>
+                </svg>
+                <h1>Holistic Medical Supply</h1>
+            </div>
+            <div class="header-stats">
+                <div class="stat-card">
+                    <div class="stat-value" id="total-products">127</div>
+                    <div class="stat-label">Products</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="low-stock">8</div>
+                    <div class="stat-label">Low Stock</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="vendors">23</div>
+                    <div class="stat-label">Vendors</div>
+                </div>
+            </div>
+        </header>
+
+        <div class="search-bar">
+            <input type="text" id="search" placeholder="Search products, vendors, or categories...">
+            <button class="btn-primary" onclick="addProduct()">+ Add Product</button>
+        </div>
+
+        <div class="dashboard">
+            <section class="inventory-section">
+                <h2>Inventory Overview</h2>
+                <div class="inventory-grid" id="inventory-grid">
+                    <!-- Products will be dynamically added here -->
+                </div>
+            </section>
+
+            <aside class="sidebar">
+                <div class="card">
+                    <h3>Quick Actions</h3>
+                    <button class="action-btn" onclick="generateReport()">
+                        📊 Generate Report
+                    </button>
+                    <button class="action-btn" onclick="checkStock()">
+                        📦 Check Low Stock
+                    </button>
+                    <button class="action-btn" onclick="manageVendors()">
+                        🏢 Manage Vendors
+                    </button>
+                </div>
+
+                <div class="card">
+                    <h3>Recent Activity</h3>
+                    <div class="activity-feed" id="activity-feed">
+                        <div class="activity-item">
+                            <span class="activity-icon">✓</span>
+                            <div class="activity-text">
+                                <p>Lavender Oil restocked</p>
+                                <small>2 minutes ago</small>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <span class="activity-icon">⚠</span>
+                            <div class="activity-text">
+                                <p>Turmeric Capsules low stock</p>
+                                <small>15 minutes ago</small>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <span class="activity-icon">✓</span>
+                            <div class="activity-text">
+                                <p>New vendor added: GreenLife</p>
+                                <small>1 hour ago</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card stats-chart">
+                    <h3>Stock Levels</h3>
+                    <div class="chart-container">
+                        <canvas id="stock-chart"></canvas>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <div id="notification" class="notification"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>
